@@ -2,7 +2,47 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
+  cloudfrontoriginaccessidentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: "OAI for bucket_bugtracker"
+  myDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+        - DomainName: bucket_bugtracker.s3.us-east-1.amazonaws.com
+          Id: bucket_bugtracker
+          S3OriginConfig:
+            OriginAccessIdentity: Ref: cloudfrontoriginaccessidentity
+        Enabled: 'true'
+        Comment: "Bugtracker Distribution"
+        DefaultRootObject: index.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - DELETE
+          - GET
+          - HEAD
+          - OPTIONS
+          - PATCH
+          - POST
+          - PUT
+          TargetOriginId: bucket_bugtracker
+          ForwardedValues:
+            QueryString: 'false'
+            Cookies:
+              Forward: none
+
+          ViewerProtocolPolicy: allow-all
+
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: 'true'    
 Outputs:
   BucketName:
     Value: 'bucket_bugtracker'
     Description: static hosting for bugtracker
+
+
+
+   
