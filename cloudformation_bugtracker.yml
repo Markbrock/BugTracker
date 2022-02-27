@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
-    cloudfrontoriginaccessidentity: 
+  cloudfrontoriginaccessidentity: 
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Ref: OAI_BugTracker
     Properties:
