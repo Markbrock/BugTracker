@@ -2,12 +2,12 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
-  cloudfrontoriginaccessidentity:
+  Ref: cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: "OAI for bucket_bugtracker"
-  myDistribution:
+  CloudFrontDistribution_BugTracker:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
