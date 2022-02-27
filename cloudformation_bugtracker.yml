@@ -4,5 +4,5 @@ Resources:
     Type: AWS::S3::Bucket
 Outputs:
   BucketName:
-    Value: !Ref 'bucket_bugtracker'
+    Value: 'bucket_bugtracker'
     Description: static hosting for bugtracker
