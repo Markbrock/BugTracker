@@ -3,7 +3,7 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
   cloudfrontoriginaccessidentity:
-    !Ref  OAI_bugtracker
+    Ref:  OAI_bugtracker
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
