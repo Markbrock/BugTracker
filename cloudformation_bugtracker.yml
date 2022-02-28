@@ -18,8 +18,8 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: !GetAtt S3Bucket.RegionalDomainName
-          Id: S3Bucket
+        - DomainName::GetAtt: [ S3Bucket,DomainName]
+          Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
@@ -34,7 +34,7 @@ Resources:
           - PATCH
           - POST
           - PUT
-          TargetOriginId: S3Bucket
+          TargetOriginId: !Ref S3Bucket
           ForwardedValues:
             QueryString: 'false'
             Cookies:
