@@ -4,6 +4,9 @@ Resources:
     Type: AWS::S3::Bucket
     Properties: 
       BucketName: bucket-bugtracker
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
       
   cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -15,7 +18,9 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: bucket-bugtracker.s3.us-east-1.amazonaws.com
+        - DomainName: 
+              - S3Bucket
+              - WebsiteURL
           Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
