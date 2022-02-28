@@ -15,7 +15,7 @@ Resources:
         - DomainName: bucket_bugtracker.s3.us-east-1.amazonaws.com
           Id: bucket_bugtracker
           S3OriginConfig:
-            OriginAccessIdentity: !Ref CloudFrontOriginAccessIdentityConfig
+            OriginAccessIdentity: !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
