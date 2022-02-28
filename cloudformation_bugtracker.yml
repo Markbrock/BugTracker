@@ -3,7 +3,6 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref bucket_bugtracker
       
   cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -16,7 +15,7 @@ Resources:
       DistributionConfig:
         Origins:
         - Id: myS3Origin
-          DomainName: !Ref bucket_bugtracker
+          DomainName: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
