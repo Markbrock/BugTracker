@@ -12,7 +12,9 @@ Resources:
     Properties:
       DistributionConfig:
         Origins: 
-        - !Ref cloudfrontoriginaccessidentity
+          Id: cloudfrontoriginaccessidentity
+          S3OriginConfig:
+            OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
