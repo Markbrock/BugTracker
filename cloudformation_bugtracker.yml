@@ -11,7 +11,8 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Origins: !Ref cloudfrontoriginaccessidentity
+        Origins: 
+          !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
