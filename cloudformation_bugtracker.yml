@@ -18,7 +18,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: !GetAtt S3Bucket.WebsiteURL
+        - DomainName: !GetAtt bucket-bugtracker.WebsiteURL
           Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
