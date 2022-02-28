@@ -2,7 +2,8 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
-  cloudfrontoriginaccessidentity: 
+  cloudfrontoriginaccessidentity:
+    !Ref  OAI_bugtracker
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
@@ -15,7 +16,7 @@ Resources:
         - DomainName: bucket_bugtracker.s3.us-east-1.amazonaws.com
           Id: bucket_bugtracker
           S3OriginConfig:
-            OriginAccessIdentity: !Ref cloudfrontoriginaccessidentity
+            OriginAccessIdentity: OAI_bugtracker
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
