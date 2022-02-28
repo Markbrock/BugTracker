@@ -2,6 +2,12 @@ AWSTemplateFormatVersion: '2010-09-09'
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref bucket_bugtracker
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: 404.html
   cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
@@ -13,7 +19,7 @@ Resources:
       DistributionConfig:
         Origins:
         - Id: myS3Origin
-          DomainName: bucket_bugtracker.s3.amazonaws.com
+          DomainName: bucket_bugtracker
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
