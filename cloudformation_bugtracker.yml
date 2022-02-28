@@ -12,7 +12,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins: 
-          Id: cloudfrontoriginaccessidentity
+          Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
