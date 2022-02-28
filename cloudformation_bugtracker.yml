@@ -12,7 +12,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins: 
-         - !Ref cloudfrontoriginaccessidentity
+        - !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
