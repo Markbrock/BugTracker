@@ -10,7 +10,7 @@ Resources:
         ErrorDocument: 404.html
 Outputs:
   BucketName:
-    Value: 'bucket_bugtracker'
+    Value: bucket_bugtracker
     Description: static hosting for bugtracker
 Resources:    
   cloudfrontoriginaccessidentity:
