@@ -11,9 +11,8 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
-        Origins: 
-          Id: !Ref S3Bucket
-          S3OriginConfig:
+        Id: !Ref S3Bucket
+        S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
