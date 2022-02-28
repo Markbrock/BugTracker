@@ -4,15 +4,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref bucket_bugtracker
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        IndexDocument: index.html
-        ErrorDocument: 404.html
-Outputs:
-  BucketName:
-    Value: bucket_bugtracker
-    Description: static hosting for bugtracker
-Resources:    
+      
   cloudfrontoriginaccessidentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
@@ -39,7 +31,7 @@ Resources:
           - PATCH
           - POST
           - PUT
-          TargetOriginId: bucket_bugtracker
+          TargetOriginId: !Ref bucket_bugtracker
           ForwardedValues:
             QueryString: 'false'
             Cookies:
