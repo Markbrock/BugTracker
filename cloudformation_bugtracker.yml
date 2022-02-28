@@ -44,10 +44,7 @@ Resources:
 
         ViewerCertificate:
           CloudFrontDefaultCertificate: 'true'    
-Outputs:
-  BucketName:
-    Value: 'bucket_bugtracker'
-    Description: static hosting for bugtracker
+
 
 
 
