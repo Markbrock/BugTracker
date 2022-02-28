@@ -4,7 +4,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties: 
       BucketName: bucket-bugtracker
-      WebsiteConfiguration:
+      WebsiteConfiguration: 
         IndexDocument: index.html
         ErrorDocument: index.html
       
@@ -18,9 +18,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: 
-              - S3Bucket
-              - WebsiteURL
+        - DomainName: !GetAtt S3Bucket.WebsiteURL
           Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
