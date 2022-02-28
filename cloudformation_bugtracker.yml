@@ -15,8 +15,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - Id: myS3Origin
-          DomainName: !Ref S3Bucket
+        - Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
