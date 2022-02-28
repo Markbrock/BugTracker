@@ -19,9 +19,9 @@ Resources:
       DistributionConfig:
         Origins:
         - DomainName:
-          GetAtt: 
-            - !Ref S3Bucket
-            - DomainName
+            GetAtt: 
+              - !Ref S3Bucket
+              - DomainName
           Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
