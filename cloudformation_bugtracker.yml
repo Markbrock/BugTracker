@@ -16,7 +16,7 @@ Resources:
       DistributionConfig:
         Origins:
         - Id: myS3Origin
-          DomainName: bucket_bugtracker
+          DomainName: !Ref bucket_bugtracker
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
