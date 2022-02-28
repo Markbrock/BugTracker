@@ -31,7 +31,6 @@ Resources:
           - PATCH
           - POST
           - PUT
-          TargetOriginId: !Ref bucket_bugtracker
           ForwardedValues:
             QueryString: 'false'
             Cookies:
