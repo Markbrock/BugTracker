@@ -7,7 +7,7 @@ Resources:
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: "OAI for bucket_bugtracker"
-  CloudFrontDistribution_BugTracker:
+  CloudFrontDistributionBugTracker:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
