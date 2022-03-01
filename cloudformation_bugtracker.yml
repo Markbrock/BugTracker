@@ -1,14 +1,16 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
-  S3Bucket:
+  S3Bucket: 
+    Ref: S3Bucket
     Type: AWS::S3::Bucket
     Properties: 
-      BucketName: bucket-bugtracker
+      BucketName: bucket-bugtracker 
       WebsiteConfiguration: 
         IndexDocument: index.html
         ErrorDocument: index.html
       
   cloudfrontoriginaccessidentity:
+    Ref: cloudfrontoriginaccessidentity
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
@@ -18,13 +20,10 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName:
-            GetAtt: 
-              - !Ref S3Bucket
-              - DomainName
-          Id: !Ref S3Bucket
+        - DomainName: !GetAtt S3Bucket.DomainName  
+          Id: S3Bucket
           S3OriginConfig:
-            OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
+            OriginAccessIdentity: cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
