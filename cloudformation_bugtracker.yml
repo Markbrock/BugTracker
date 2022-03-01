@@ -18,7 +18,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: !GetAtt S3Bucket.DomainName  
+        - DomainName: !GetAtt S3Bucket.RegionalDomainName  
           Id: S3Origin
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
