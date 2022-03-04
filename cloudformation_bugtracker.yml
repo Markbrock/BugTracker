@@ -19,7 +19,8 @@ Resources:
       DistributionConfig:
         Origins:
         - DomainName: !GetAtt  S3Bucket.DomainName
-          Id: "trip-quote-form.s3.us-east-1.amazonaws.com	"
+          Id: 
+            Ref: S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  
               Ref: cloudfrontoriginaccessidentity
