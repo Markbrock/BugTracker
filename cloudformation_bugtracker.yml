@@ -17,6 +17,12 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
+        Origins:
+        - DomainName: !GetAtt  S3Bucket.DomainName
+          Id: "trip-quote-form.s3.us-east-1.amazonaws.com	"
+          S3OriginConfig:
+            OriginAccessIdentity:  
+              Ref: cloudfrontoriginaccessidentity
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
@@ -29,7 +35,8 @@ Resources:
           - PATCH
           - POST
           - PUT
-          TargetOriginId: S3Bucket
+          TargetOriginId: 
+            Ref: S3Bucket
           ForwardedValues:
             QueryString: 'false'
             Cookies:
