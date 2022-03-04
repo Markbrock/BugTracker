@@ -29,6 +29,7 @@ Resources:
           - PATCH
           - POST
           - PUT
+          TargetOriginId: !Ref S3Bucket
           ForwardedValues:
             QueryString: 'false'
             Cookies:
