@@ -18,8 +18,8 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: !GetAtt S3Bucket.RegionalDomainName  
-          Id: !Ref S3Bucket
+        - DomainName: "trip-quote-form.s3.us-east-1.amazonaws.com	"  
+          Id: "trip-quote-form.s3.us-east-1.amazonaws.com	"
           S3OriginConfig:
             OriginAccessIdentity:  !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
