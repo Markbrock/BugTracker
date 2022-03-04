@@ -20,7 +20,7 @@ Resources:
         - DomainName: !GetAtt  S3Bucket.RegionalDomainName
           Id: 'BugTracker'
           S3OriginConfig:
-            OriginAccessIdentity: !Ref cloudfrontoriginaccessidentity
+            OriginAccessIdentity: !GetAtt cloudfrontoriginaccessidentity.S3CanonicalUserId
         Enabled: 'true'
         Comment: "Bugtracker Distribution"
         DefaultRootObject: index.html
