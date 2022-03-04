@@ -18,7 +18,7 @@ Resources:
       DistributionConfig:
         Origins:
         - DomainName: !GetAtt  S3Bucket.RegionalDomainName
-          Id: !GetAtt  S3Bucket.RegionalDomainName
+          Id: 'BugTracker'
           S3OriginConfig:
             OriginAccessIdentity: !Ref cloudfrontoriginaccessidentity
         Enabled: 'true'
@@ -33,7 +33,7 @@ Resources:
           - PATCH
           - POST
           - PUT
-          TargetOriginId: !GetAtt  S3Bucket.RegionalDomainName
+          TargetOriginId: 'BugTracker'
           ForwardedValues:
             QueryString: 'false'
             Cookies:
