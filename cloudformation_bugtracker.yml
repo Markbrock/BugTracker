@@ -3,7 +3,6 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties: 
-      BucketName: bucket-bugtracker 
       WebsiteConfiguration: 
         IndexDocument: index.html
         ErrorDocument: index.html
@@ -19,8 +18,7 @@ Resources:
       DistributionConfig:
         Origins:
         - DomainName: !GetAtt  S3Bucket.DomainName
-          Id: 
-            Ref: S3Bucket
+          Id: !Ref S3Bucket
           S3OriginConfig:
             OriginAccessIdentity:  
               Ref: cloudfrontoriginaccessidentity
@@ -36,8 +34,7 @@ Resources:
           - PATCH
           - POST
           - PUT
-          TargetOriginId: 
-            Ref: S3Bucket
+          TargetOriginId: !Ref S3Bucket
           ForwardedValues:
             QueryString: 'false'
             Cookies:
