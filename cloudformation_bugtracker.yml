@@ -1,17 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
-  S3Bucket:
-    Type: AWS::S3::Bucket
-    Properties: 
-      WebsiteConfiguration: 
-        IndexDocument: index.html
-        ErrorDocument: index.html
-      
-  cloudfrontoriginaccessidentity:
-    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
-    Properties:
-      CloudFrontOriginAccessIdentityConfig:
-        Comment: "OAI for bucket_bugtracker"
   CloudFrontDistributionBugTracker:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -42,8 +30,29 @@ Resources:
           ViewerProtocolPolicy: allow-all
 
         ViewerCertificate:
-          CloudFrontDefaultCertificate: 'true'    
-
+          CloudFrontDefaultCertificate: 'true'
+  CloudFrontOAI:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'access-identity-passport-front.s3.amazonaws.com'  
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: "Retain"
+    Properties:
+      AccessControl: PublicRead
+      BucketName: "passport-front"
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Statement:
+        - Action: s3:GetObject
+          Effect: Allow
+          Principal:
+            CanonicalUser: !GetAtt CloudFrontOAI.S3CanonicalUserId
+          Resource: !Join ['', ['arn:aws:s3:::', !Ref 'S3Bucket', /*]]
 
 
 
