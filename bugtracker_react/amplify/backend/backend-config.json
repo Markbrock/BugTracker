@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "bugtrackerreactbb24fc39": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
