@@ -1,7 +1,51 @@
+body{ 
+  background-color: #282c34;
+}
+h2{
+  text-align: right;
+  color: gray;
+}
+.SignOut{
+  text-align: right;
+  
+}
+button{
+  border-radius: 10px;
+  border-style:solid
+}
+
+label{
+  
+}
+input{
+  margin-top: 15px;
+}
+select{
+  margin: 15px;
+}
 .App {
   text-align: center;
 }
+.CreateBug{
+  width: 100%;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 5px;
+  border-color: gray;
+  background-color: #282c34;
+  color: white;
+}
+.Forms{
+  font-size: 24px;
 
+}
+.inlineFlex{
+  display: inline-flex;
+}
+.UpdateButton {
+  font-size: 14px;
+  margin: 15px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,7 +67,32 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.FullBugReport{
+  font-size: 24px;
+}
+.BugReportCard{
 
+  font-size: 24px;
+  border-style: solid;
+  border-color: gray;
+  background-color: #282c34;
+  color: white;
+}
+h1{
+  color: white;
+}
+label{
+  color: white;
+}
+h3{
+  color: white;
+}
+h5{
+  color: white;
+}
+p{
+  color: white;
+}
 .App-link {
   color: #61dafb;
 }
